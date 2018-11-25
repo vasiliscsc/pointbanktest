@@ -15,7 +15,7 @@ restService.use(bodyParser.json());
 
 restService.post("/action", function(req, res) {
   // const result = await webhook.do_action(req);
-  var speech = result;
+  var speech = 
     req.body.result &&
     req.body.result.parameters &&
     req.body.result.parameters.echoText
