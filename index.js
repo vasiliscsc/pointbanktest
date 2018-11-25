@@ -14,13 +14,13 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/action", function(req, res) {
-  const result = await webhook.do_action(req);
+  // const result = await webhook.do_action(req);
   var speech = result;
-    // req.body.result &&
-    // req.body.result.parameters &&
-    // req.body.result.parameters.echoText
-    //   ? req.body.result.parameters.echoText
-    //   : "Seems like some problem. Speak again.";
+    req.body.result &&
+    req.body.result.parameters &&
+    req.body.result.parameters.echoText
+      ? req.body.result.parameters.echoText
+      : "Seems like some problem. Speak again.";
   return res.json({
     speech: speech,
     displayText: speech,
