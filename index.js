@@ -691,16 +691,16 @@ restService.use(
 restService.use(bodyParser.json());
 
 restService.post("/action", function(req, res) {
-  // const result = await webhook.do_action(req);
-  var speech = 
-    req.body.result &&
-    req.body.result.parameters &&
-    req.body.result.parameters.echoText
-      ? req.body.result.parameters.echoText
-      : "Seems like some problem. Speak again.";
+  const result = await webhook.do_action(req);
+  // var speech = 
+  //   req.body.result &&
+  //   req.body.result.parameters &&
+  //   req.body.result.parameters.echoText
+  //     ? req.body.result.parameters.echoText
+  //     : "Seems like some problem. Speak again.";
   return res.json({
-    speech: speech,
-    displayText: speech,
+    speech: result,
+    displayText: result,
     source: "point-bank-bot"
   });
 });
