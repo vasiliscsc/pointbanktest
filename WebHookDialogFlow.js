@@ -34,7 +34,7 @@ function convertDate(date) {
   return "on "+day+"/"+month+"/"+year+" at "+hour+":"+minute+":"+second;
 }
 
-async function do_action(input) {
+export async function do_action(input) {
     var action = input['result']['action'];
     switch (action){
     case "login":
@@ -69,6 +69,7 @@ async function do_action(input) {
     // }
     }
 }
+
 
 async function fetch_all_transactions_of_enduser() {
     var list_of_ledgers = await list_a_specific_endusers_ledgers(enduser_id);
